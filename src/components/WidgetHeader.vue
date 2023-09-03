@@ -2,7 +2,7 @@
   import TheIcon from '@/components/UI/Icon'
 </script>
 <template>
-  <div class="flex items-center justify-between mb-16">
+  <div class="flex items-center justify-between mb-16 hover:bg-border rounded-xl">
     <div class="px-12">
       <h2 class="text-base font-bold text-base-900 leading-140 dark:text-white">Upcoming Sessions</h2>
       <p class="text-xs leading-140 dark:text-white">Saturday, June 25, 2022</p>

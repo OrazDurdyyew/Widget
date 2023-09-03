@@ -7,12 +7,18 @@ export default {
       0: '0px',
       1: '1px',
       2: '2px',
+      4: '4px',
       3.5: '3.5px',
+      5: '5px',
+      6: '6px',
+      8: '8px',
+      10: '10px',
       12: '12px',
       14: '14px',
       16: '16px',
       20: '20px',
-      32: '32px'
+      32: '32px',
+      320: '320px'
     },
     extend: {
       colors: {
@@ -21,7 +27,9 @@ export default {
         primary: '#9484F7;',
         border: '#9297B729',
         base: {
-          900: '#282C41'
+          900: '#282C41',
+          700: '#5B628A',
+          600: '#9297B7'
         }
       },
       fontSize: {
@@ -34,6 +42,7 @@ export default {
         140: '140%'
       },
       minWidth: {
+        34: '34px',
         320: '320px'
       }
     }
