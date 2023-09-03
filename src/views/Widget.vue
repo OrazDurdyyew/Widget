@@ -1,16 +1,31 @@
 <script setup lang="ts">
+  import { computed, watchEffect, ref } from 'vue'
+  import { WidgetDate } from '@/types/index'
+
   import WidgetHeader from '@/components/WidgetHeader.vue'
   import WidgetSlider from '@/components/WidgetSlider.vue'
   import TheLanguages from '@/components/TheLanguages.vue'
   import WidgetGrid from '@/components/WidgetGrid.vue'
   import WidgetCard from '@/components/WidgetCard.vue'
   import SwitchInput from '@/components/UI/SwitchInput.vue'
+  import { session } from '@/helpers/index'
 
   import { useStore } from 'vuex'
 
   const store = useStore()
 
   store.dispatch('getDateList')
+  const activeDate = computed<WidgetDate>(() => store.getters.activeDate)
+  const sortedSessions = ref([])
+  watchEffect(() => {
+    sortedSessions.value = session[activeDate.value.date] || []
+    console.log(session[activeDate.value.date])
+  })
+
+  const activeCard = ref<any>(null)
+  const toggleActive = (index: number) => {
+    activeCard.value = index
+  }
 </script>
 <template>
   <div class="min-w-320">
@@ -25,14 +40,13 @@
       <widget-header></widget-header>
       <widget-slider></widget-slider>
       <widget-grid>
-        <widget-card></widget-card>
-        <widget-card></widget-card>
-        <widget-card></widget-card>
-        <widget-card></widget-card>
-        <widget-card></widget-card>
-        <widget-card></widget-card>
-        <widget-card></widget-card>
-        <widget-card></widget-card>
+        <widget-card
+          v-for="(item, index) in sortedSessions"
+          :key="index"
+          :session="item"
+          @click="toggleActive(index)"
+          :active="index === activeCard"
+        ></widget-card>
       </widget-grid>
     </div>
   </div>

@@ -53,10 +53,18 @@ const store = createStore({
         date.setDate(today.getDate() + i)
         const dayOfWeek = daysOfWeek[date.getDay()]
         const currentMonth = months[date.getMonth()]
-        const dateString = { dayOfWeek: dayOfWeek, day: date.getDate(), month: currentMonth, year: date.getFullYear(), date: date }
+        let newDate = date
+          ? `${new Date(date).getFullYear().toString().padStart(4, '0')}-${(new Date(date).getMonth() + 1).toString().padStart(2, '0')}-${new Date(
+              date
+            )
+              .getDate()
+              .toString()
+              .padStart(2, '0')}`
+          : null
+
+        const dateString = { dayOfWeek: dayOfWeek, day: date.getDate(), month: currentMonth, year: date.getFullYear(), date: newDate }
         newDateList.push(dateString)
       }
-
       commit('SET_NEW_DATE_LIST', newDateList)
       commit('SET_ACTIVE_DATE', newDateList[0])
     }
