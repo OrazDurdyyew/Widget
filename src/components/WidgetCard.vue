@@ -17,6 +17,10 @@
   const getUrl = (img: string) => {
     return new URL(`../assets/img/${img}`, import.meta.url).href
   }
+
+  const cancel = () => {
+    alert('session canceled and remove this session')
+  }
 </script>
 
 <template>
@@ -32,7 +36,7 @@
     <div class="text-base-700 text-[16px] mb-10">→ {{ props.session.time }}</div>
     <div v-if="props.active" class="flex py-10">
       <the-button primary> Join</the-button>
-      <the-button> Dismiss</the-button>
+      <the-button @click="cancel"> Dismiss</the-button>
     </div>
   </div>
 </template>

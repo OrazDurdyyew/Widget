@@ -7,6 +7,7 @@
   import TheLanguages from '@/components/TheLanguages.vue'
   import WidgetGrid from '@/components/WidgetGrid.vue'
   import WidgetCard from '@/components/WidgetCard.vue'
+  import WidgetEmpty from '@/components/WidgetEmpty.vue'
   import SwitchInput from '@/components/UI/SwitchInput.vue'
   import { session } from '@/helpers/index'
 
@@ -19,8 +20,8 @@
   const sortedSessions = ref([])
   watchEffect(() => {
     sortedSessions.value = session[activeDate.value.date] || []
-    console.log(session[activeDate.value.date])
   })
+  console.log(activeDate)
 
   const activeCard = ref<any>(null)
   const toggleActive = (index: number) => {
@@ -39,15 +40,12 @@
     >
       <widget-header></widget-header>
       <widget-slider></widget-slider>
-      <widget-grid>
-        <widget-card
-          v-for="(item, index) in sortedSessions"
-          :key="index"
-          :session="item"
-          @click="toggleActive(index)"
-          :active="index === activeCard"
-        ></widget-card>
+      <widget-grid v-if="sortedSessions.length">
+        <template v-for="(item, index) in sortedSessions" :key="index">
+          <widget-card :session="item" @click="toggleActive(index)" :active="index === activeCard"></widget-card>
+        </template>
       </widget-grid>
+      <widget-empty v-else></widget-empty>
     </div>
   </div>
 </template>
