@@ -1,6 +1,9 @@
 <script setup lang="ts">
   import WidgetHeader from '@/components/WidgetHeader.vue'
   import WidgetSlider from '@/components/WidgetSlider.vue'
+  import TheLanguages from '@/components/TheLanguages.vue'
+  import WidgetGrid from '@/components/WidgetGrid.vue'
+  import WidgetCard from '@/components/WidgetCard.vue'
   import SwitchInput from '@/components/UI/SwitchInput.vue'
 
   import { useStore } from 'vuex'
@@ -11,7 +14,8 @@
 </script>
 <template>
   <div class="min-w-320">
-    <div class="mb-16 flex justify-end px-12">
+    <div class="mb-16 flex justify-between px-12">
+      <the-languages></the-languages>
       <switch-input></switch-input>
     </div>
     <div
@@ -20,6 +24,16 @@
     >
       <widget-header></widget-header>
       <widget-slider></widget-slider>
+      <widget-grid>
+        <widget-card></widget-card>
+        <widget-card></widget-card>
+        <widget-card></widget-card>
+        <widget-card></widget-card>
+        <widget-card></widget-card>
+        <widget-card></widget-card>
+        <widget-card></widget-card>
+        <widget-card></widget-card>
+      </widget-grid>
     </div>
   </div>
 </template>

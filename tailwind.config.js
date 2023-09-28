@@ -11,6 +11,7 @@ export default {
       3.5: '3.5px',
       5: '5px',
       6: '6px',
+      7: '7px',
       8: '8px',
       10: '10px',
       12: '12px',
@@ -18,9 +19,18 @@ export default {
       16: '16px',
       20: '20px',
       32: '32px',
-      320: '320px'
+      310: '310px',
+      320: '320px',
+      768: '768px',
+      1024: '1024px'
     },
     extend: {
+      screens: {
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px'
+      },
       colors: {
         black: '#1C1E2D',
         white: colors.white,

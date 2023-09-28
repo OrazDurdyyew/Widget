@@ -1,16 +1,9 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="main flex justify-center items-center flex-col">
+  <div class="flex justify-center items-center flex-col w-[100%] h-[100%] p-10">
     <router-view></router-view>
   </div>
 </template>
 
-<style scoped>
-  .main {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background: #e9eaf2;
-  }
-</style>
+<style scoped></style>

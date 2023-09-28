@@ -37,11 +37,26 @@
   }
 </script>
 <template>
-  <div class="w-320 p-10 flex gap-10">
+  <div class="xl:w-1280 lg:w-1024 md:w-768 w-320 p-10 mb-16 flex justify-center gap-10">
     <button @click="prevSlide">
       <the-icon name="chevronRight"></the-icon>
     </button>
-    <swiper ref="swiperRef" :slides-per-view="3" :space-between="10" hashNavigation>
+    <swiper
+      ref="swiperRef"
+      :slidesPerView="3"
+      :spaceBetween="10"
+      :breakpoints="{
+        320: {
+          slidesPerView: 3
+        },
+        768: {
+          slidesPerView: 5
+        },
+        1024: {
+          slidesPerView: 7
+        }
+      }"
+    >
       <swiper-slide v-for="(item, index) in dateList" :key="index">
         <div
           @click="updateActiveDate(item)"
