@@ -8,6 +8,9 @@
   const route = useRoute()
 
   const layout = computed(() => (route.meta?.layout == 'empty' ? Empty : Default))
+
+
+  
 </script>
 
 <template>

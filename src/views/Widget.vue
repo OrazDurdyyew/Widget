@@ -2,6 +2,12 @@
   import WidgetHeader from '@/components/WidgetHeader.vue'
   import WidgetSlider from '@/components/WidgetSlider.vue'
   import SwitchInput from '@/components/UI/SwitchInput.vue'
+
+  import { useStore } from 'vuex'
+
+  const store = useStore()
+
+  store.dispatch('getDateList')
 </script>
 <template>
   <div class="min-w-320">
